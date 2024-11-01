@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substituir Linha por Zeros</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff; 
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            width: 300px; 
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .zero {
+            background-color: #ffcccc;
+        }
+        select {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Substituir Linha por Zeros</h1>
+<input type="text" id="matrizInput" placeholder="Digite a matriz (ex: 1,2,3;4,5,6;7,8,9)">
+<button onclick="criarMatriz()">Criar Matriz</button>
+
+<h2>Matriz:</h2>
+<table id="matrizTable"></table>
+
+<h2>Escolha a Linha para Substituir:</h2>
+<select id="linhaSelect"></select>
+<button onclick="substituirLinha()">Substituir Linha</button>
+
+<script>
+    let matriz = [];
+
+    function criarMatriz() {
+        const matrizInput = document.getElementById('matrizInput').value;
+        matriz = matrizInput.split(';').map(linha => linha.trim().split(',').map(Number));
+
+        const tabela = document.getElementById('matrizTable');
+        tabela.innerHTML = ''; 
+        const linhaSelect = document.getElementById('linhaSelect');
+        linhaSelect.innerHTML = ''; 
+        matriz.forEach((linha, index) => {
+            const tr = document.createElement('tr');
+            linha.forEach(valor => {
+                const td = document.createElement('td');
+                td.textContent = valor;
+                tr.appendChild(td);
+            });
+            tabela.appendChild(tr);
+
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = `Linha ${index + 1}`;
+            linhaSelect.appendChild(option);
+        });
+    }
+    function substituirLinha() {
+        const linhaIndex = parseInt(document.getElementById('linhaSelect').value);
+
+        matriz[linhaIndex] = Array(matriz[linhaIndex].length).fill(0); 
+
+        const tabela = document.getElementById('matrizTable');
+        for (let i = 0; i < matriz.length; i++) {
+            const row = tabela.rows[i];
+            for (let j = 0; j < matriz[i].length; j++) {
+                row.cells[j].textContent = matriz[i][j];
+                if (i === linhaIndex) {
+                    row.cells[j].classList.add('zero'); 
+                } else {
+                    row.cells[j].classList.remove('zero');
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
