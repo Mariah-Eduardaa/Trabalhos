@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore de Maçãs</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8ab6bb; 
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .tree {
+            position: relative;
+            width: 250px; 
+        }
+        .apple {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .apple1 { top: 40px; left: 40px; }
+        .apple2 { top: 70px; left: 120px; }
+        .apple3 { top: 20px; left: 180px; }
+        .apple4 { top: 60px; left: 80px; }
+        .apple5 { top: 50px; left: 150px; }
+        .apple6 { top: 90px; left: 60px; }
+        .apple7 { top: 30px; left: 200px; }
+        .apple8 { top: 80px; left: 160px; }
+    </style>
+</head>
+<body>
+
+<h1>Clique para colher as maçãs!</h1>
+<div class="tree">
+    <img src="https://i.pinimg.com/originals/ad/fa/98/adfa988dc57b760fa11794a63fb58804.png" alt="Árvore" width="250" /> <!-- Tamanho da árvore -->
+    <div class="apple apple1" onclick="retirarMaca(this)"></div>
+    <div class="apple apple2" onclick="retirarMaca(this)"></div>
+    <div class="apple apple3" onclick="retirarMaca(this)"></div>
+    <div class="apple apple4" onclick="retirarMaca(this)"></div>
+    <div class="apple apple5" onclick="retirarMaca(this)"></div>
+    <div class="apple apple6" onclick="retirarMaca(this)"></div>
+    <div class="apple apple7" onclick="retirarMaca(this)"></div>
+    <div class="apple apple8" onclick="retirarMaca(this)"></div>
+</div>
+
+<script>
+    function retirarMaca(maca) {
+        maca.style.display = 'none'; 
+    }
+</script>
+
+</body>
+</html>
