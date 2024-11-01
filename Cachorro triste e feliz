@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachorro Feliz e Triste</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff; 
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333; 
+        }
+
+        #cachorro {
+            width: 300px; 
+            cursor: pointer;
+            border: 2px solid #000000; 
+            border-radius: 10px; 
+            transition: transform 0.2s; 
+        }
+
+        #cachorro:hover {
+            transform: scale(1.05); 
+        }
+    </style>
+</head>
+<body>
+
+<h1>Coloque o mouse sobre o cachorro para animá-lo!</h1>
+<img id="cachorro" src="cachorro_triste.png" alt="Cachorro" />
+
+<script>
+    const cachorro = document.getElementById('cachorro');
+
+    cachorro.addEventListener('mouseenter', () => {
+        cachorro.src = 'https://i.pinimg.com/originals/6b/dd/5b/6bdd5b8ae02cf935f880de1831980028.jpg'; 
+    });
+
+    cachorro.addEventListener('mouseleave', () => {
+        cachorro.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c2047868-eb3f-45a9-84ac-a12510bfedd9/dfy15fl-1bf22faa-1c30-4579-8db2-f2e05b3dada8.png/v1/fill/w_800,h_800/bolt__by_dracoawesomeness_dfy15fl-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODAwIiwicGF0aCI6IlwvZlwvYzIwNDc4NjgtZWIzZi00NWE5LTg0YWMtYTEyNTEwYmZlZGQ5XC9kZnkxNWZsLTFiZjIyZmFhLTFjMzAtNDU3OS04ZGIyLWYyZTA1YjNkYWRhOC5wbmciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.MGBQTiNbOGjXt1fxEo4K3zUuXjV-co_XGkW_gWiLcBQ'; 
+    });
+</script>
+
+</body>
+</html>
